@@ -1,5 +1,5 @@
 function loadCSV() {
-  Papa.parse("rf_importance_ACC.csv", {
+  Papa.parse("rf_importance_HIPP.csv", {
     download: true,
     header: true,
     dynamicTyping: true,
@@ -34,7 +34,7 @@ function createChart(data) {
       type: "column",
     },
     title: {
-      text: "ACC metabolites importance",
+      text: "Hippocampus metabolites importance",
     },
     xAxis: {
       categories: sortedMetabolites,
@@ -62,27 +62,6 @@ function createChart(data) {
     legend: {
       enabled: false,
     },
-
-    plotOptions: {
-      column: {
-        colors: [
-          "#1f77b4",
-          "#ff7f0e",
-          "#2ca02c",
-          "#d62728",
-          "#9467bd",
-          "#8c564b",
-          "#e377c2",
-          "#7f7f7f",
-          "#bcbd22",
-          "#17becf",
-          "#ffbb78",
-          "#98df8a",
-        ],
-        colorByPoint: true,
-      },
-    },
-
     series: [
       {
         name: "Values",
@@ -102,6 +81,7 @@ function createChart(data) {
         },
       },
     ],
+
     exporting: {
       enabled: true,
       buttons: {

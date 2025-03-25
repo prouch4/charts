@@ -1,5 +1,5 @@
 function loadCSV() {
-  Papa.parse("rf_importance_ACC.csv", {
+  Papa.parse("rf_importance_PFC.csv", {
     download: true,
     header: true,
     dynamicTyping: true,
@@ -34,7 +34,7 @@ function createChart(data) {
       type: "column",
     },
     title: {
-      text: "ACC metabolites importance",
+      text: "PFC metabolites importance",
     },
     xAxis: {
       categories: sortedMetabolites,
@@ -102,6 +102,7 @@ function createChart(data) {
         },
       },
     ],
+
     exporting: {
       enabled: true,
       buttons: {
