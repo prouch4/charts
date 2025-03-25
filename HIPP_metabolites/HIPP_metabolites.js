@@ -29,6 +29,25 @@ function createChart(data) {
   console.log("Metabolites: ", sortedMetabolites);
   console.log("Values: ", sortedValues);
 
+  const colorMap = {
+    Gln: "#1f77b4",
+    Glu: "#ff7f0e",
+    mI: "#2ca02c",
+    NAA: "#d62728",
+    sI: "#9467bd",
+    tCho: "#8c564b",
+    GSH: "#e377c2",
+    NAAG: "#7f7f7f",
+    Asc: "#bcbd22",
+    Asp: "#17becf",
+    Lac: "#ffbb78",
+    GABA: "#98df8a",
+  };
+
+  function getColor(metabolite) {
+    return colorMap[metabolite] || "#7f7f7f";
+  }
+
   Highcharts.chart("container", {
     chart: {
       type: "column",
@@ -66,7 +85,10 @@ function createChart(data) {
       {
         name: "Values",
         colorByPoint: true,
-        data: sortedValues,
+        data: sortedValues.map((value, index) => ({
+          y: value,
+          color: getColor(sortedMetabolites[index]),
+        })),
         dataLabels: {
           enabled: true,
           inside: false,
